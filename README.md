@@ -1,6 +1,13 @@
 # Aimedlabs-Assignment
 The login page for the "Aimedlabs-Assignment" repository is created with Style Component to ensure it's responsive on all devices.
 
+## Error Handling 
+1.User name must be enter
+2.Password should be 8 digit +Special Chararacter + One word Should upper and lower case 
+3. Agree to term and condition Box must me check before submit a form
+4. Alert message appear if everything working fine;
+5. Login page is fully responsive `Desktop,Mobile,Tablet` view
+
 ### ScreenShot
 ## Desktop View
 ![image](https://github.com/creator79/Aimedlabs-Assignment/assets/72148636/d8cfd365-8df0-4443-ad48-cf38173b6669)
