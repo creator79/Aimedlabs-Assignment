@@ -1,48 +1,9 @@
-import React, { useState } from "react";
+import * as React from "react";
 import styled from "styled-components";
-import Image1 from "../assets/image1.svg";
-import Image2 from "../assets/image2.svg";
-import Eye from "../assets/eye.png";
+import Image1 from "../assets/image1.svg"
+import Image2 from "../assets/image2.svg"
 
 function MyComponent(props) {
-  const [loginID, setLoginID] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [error, setError] = useState("");
-  const [isAgreed, setIsAgreed] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false); // New state for form submission status
-
-  const handleLogin = () => {
-    if (loginID.trim() === "") {
-      setError("Username cannot be empty.");
-    } else if (
-      !/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/.test(password) ||
-      password.length < 8
-    ) {
-      setError(
-        "Password must be at least 8 characters and contain upper and lower case letters, a digit, and a special character."
-      );
-    } else if (!isAgreed) {
-      setError("Please agree to the Terms & Conditions.");
-    } else {
-      setError(""); // Clear any previous error
-      setFormSubmitted(true); // Set form submission status to true
-  
-      // Display the "Success" message where the error message was previously shown
-      setError("Form is Submitted Sucessfully ");
-  
-      // Show an alert box with "Form submitted"
-      alert("Form submitted");
-    }
-  };
-  
-  const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
-  };
-
-  const handleAgreeChange = () => {
-    setIsAgreed(!isAgreed);
-  };
 
   return (
     <ButtonDiv>
@@ -56,49 +17,26 @@ function MyComponent(props) {
               <ButtonDiv5>Login</ButtonDiv5>
               <ButtonDiv6>
                 <ButtonDiv7>Login ID</ButtonDiv7>
-                <InputBox8
-                  type="text"
-                  placeholder="Enter Login ID"
-                  value={loginID}
-                  onChange={(e) => {
-                    setLoginID(e.target.value);
-                    setError(""); // Clear any previous error
-                  }}
-                />
+                <InputBox8 
+                type="text"
+                placeholder="Enter Login ID"
+              />
                 <ButtonDiv9>Password</ButtonDiv9>
                 <ButtonDiv10>
-                  <InputBox11
-                    type={passwordVisible ? "text" : "password"}
-                    placeholder="Enter Password"
-                    value={password}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                      setError(""); // Clear any previous error
-                    }}
-                  />
-                  <TogglePasswordVisibilityButton
-                    onClick={togglePasswordVisibility}
-                  >
-                    {passwordVisible ? (
-                      <img src={Eye} alt="Show" />
-                    ) : (
-                      <img src={Image2} alt="Hide" />
-                    )}
-                  </TogglePasswordVisibilityButton>
+                <InputBox11 
+                type="password"
+                placeholder="Enter Password"
+              />
+                  <Img2 loading="lazy" src={Image2} />
                 </ButtonDiv10>
-                {error && <ErrorText>{error}</ErrorText>}
                 <ButtonDiv12>
                   <ButtonDiv13>
                     <ButtonDiv14>
-                      <input type="checkbox" />
+                      <ButtonDiv15 type="checkbox"/>
                       <ButtonDiv16>Remember Me</ButtonDiv16>
                     </ButtonDiv14>
                     <ButtonDiv17>
-                      <input
-                        type="checkbox"
-                        onChange={handleAgreeChange}
-                        checked={isAgreed}
-                      />
+                      <ButtonDiv18 type="checkbox"/>
                       <ButtonDiv19>
                         <span style={{ color: "rgba(115,123,134,1)" }}>
                           Agree to{" "}
@@ -111,35 +49,17 @@ function MyComponent(props) {
                   </ButtonDiv13>
                   <ButtonDiv20>Change Password</ButtonDiv20>
                 </ButtonDiv12>
-                <ButtonDiv21 onClick={handleLogin}>
+                <ButtonDiv21>
                   <ButtonDiv22>Login</ButtonDiv22>
                 </ButtonDiv21>
-                <ButtonDiv23>
-                  <span
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontWeight: 400,
-                      color: "rgba(4,7,47,1)",
-                    }}
-                  >
+                <ButtonDiv23 >
+                  <span style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400, color: "rgba(4,7,47,1)" }}>
                     Don’t have an account?
                   </span>
-                  <span
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontWeight: 700,
-                      color: "rgba(4,7,47,1)",
-                    }}
-                  >
+                  <span style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700, color: "rgba(4,7,47,1)" }}>
                     {" "}
                   </span>
-                  <span
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontWeight: 700,
-                      color: "rgba(247,135,25,1)",
-                    }}
-                  >
+                  <span style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700, color: "rgba(247,135,25,1)" }}>
                     Register Here
                   </span>
                 </ButtonDiv23>
@@ -151,27 +71,6 @@ function MyComponent(props) {
     </ButtonDiv>
   );
 }
-
-const TogglePasswordVisibilityButton = styled.button`
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font: 400 18px/110% Poppins, sans-serif;
-  color: var(--Secondary---1, #f78719);
-
-  img {
-    width: 16px; // Adjust the width as needed
-    height: 16px; // Adjust the height as needed
-  }
-`;
-
-const ErrorText = styled.div`
-  margin-top: 15px;
-  color: red;
-  font: 400 14px/110% Poppins, sans-serif;
-  margin-left: 2rem;
-`;
-
 
 const ButtonDiv = styled.div`
   justify-content: flex-end;
@@ -229,7 +128,6 @@ const Img = styled.img`
     margin-top: 40px;
   }
 `;
-
 
 const Column2 = styled.div`
   display: flex;
@@ -314,6 +212,7 @@ const InputBox8 = styled.input`
   }
 `;
 
+
 const ButtonDiv9 = styled.div`
   color: var(--Text-color, #111112);
   align-self: start;
@@ -344,18 +243,20 @@ const ButtonDiv10 = styled.div`
   }
 `;
 
-const InputBox11 = styled.input`
+const InputBox11  = styled.input`
   color: var(--Light-Color---1, #737b86);
   margin: auto 0;
   margin-left: 0px;
   font: 400 18px/110% Poppins, sans-serif;
-  border-outline: none;
+  border-outline: none; 
   margin-left: 14px;
   border: none;
   focus: none;
+  
 `;
 
-const Iss = styled.img`
+
+const Img2 = styled.img`
   aspect-ratio: 1;
   object-fit: cover;
   object-position: center;
@@ -374,6 +275,7 @@ const ButtonDiv12 = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
+  
 
   @media (max-width: 991px) {
     max-width: 100%;
@@ -427,6 +329,16 @@ const ButtonDiv17 = styled.div`
   gap: 8px;
 `;
 
+const ButtonDiv18 = styled.input`
+  border-radius: 4px;
+  border: 1px solid #737b86;
+  align-self: start;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  flex-direction: column;
+  cursor: pointer;
+`;
 
 const ButtonDiv19 = styled.div`
   color: var(--Secondary---1, #f78719);
@@ -478,7 +390,7 @@ const ButtonDiv22 = styled.div`
   align-self: center;
   text-wrap: nowrap;
   font: 500 18px/110% Poppins, sans-serif;
-  cursor: pointer;
+  cursor : pointer;
 
   @media (max-width: 991px) {
     text-wrap: initial;
