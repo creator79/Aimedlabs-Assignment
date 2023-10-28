@@ -2,7 +2,7 @@
 The login page for the "Aimedlabs-Assignment" repository is created with Style Component to ensure it's responsive on all devices.
 
 ## Error Handling 
-1.User name must be enter
+1. User name must be enter
 2.Password should be 8 digit +Special Chararacter + One word Should upper and lower case 
 3. Agree to term and condition Box must me check before submit a form
 4. Alert message appear if everything working fine;
